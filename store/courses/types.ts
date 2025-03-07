@@ -1,0 +1,3 @@
+export const SET_COURSES = 'SET_COURSES';
+export const SET_COURSES_ERROR = 'SET_COURSES_ERROR';
+export const ADD_COURSE = 'ADD_COURSE';
