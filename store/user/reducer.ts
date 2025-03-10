@@ -5,7 +5,7 @@ interface UserState {
   name: string;
   email: string;
   token: string;
-  isAdmin: boolean; // ✅ Додаємо `isAdmin`
+  isAdmin: boolean; 
 }
 
 const initialState: UserState = {
@@ -13,7 +13,7 @@ const initialState: UserState = {
   name: '',
   email: '',
   token: '',
-  isAdmin: JSON.parse(localStorage.getItem('isAdmin') || 'false'), // ✅ Відновлюємо з `localStorage`
+  isAdmin: JSON.parse(localStorage.getItem('isAdmin') || 'false'), 
 };
 
 const userSlice = createSlice({
@@ -28,7 +28,7 @@ const userSlice = createSlice({
       state.name = action.payload.name;
       state.email = action.payload.email;
       state.token = action.payload.token;
-      state.isAdmin = action.payload.isAdmin; // ✅ Зберігаємо статус `isAdmin`
+      state.isAdmin = action.payload.isAdmin; 
     },
     logout(state) {
       state.isAuth = false;
@@ -36,7 +36,7 @@ const userSlice = createSlice({
       state.email = '';
       state.token = '';
       state.isAdmin = false;
-      localStorage.removeItem('isAdmin'); // ✅ Видаляємо `isAdmin` при логауті
+      localStorage.removeItem('isAdmin'); 
     },
   },
 });

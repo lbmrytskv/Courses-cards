@@ -24,7 +24,7 @@ export const updateCourseOnServer = async (course: Course) => {
       throw new Error("No authorization token found. Please log in.");
   }
 
-  token = token.replace(/^Bearer\s+/, ""); // Фікс Bearer
+  token = token.replace(/^Bearer\s+/, ""); 
 
   console.log("🔄 Sending PUT request to server with data:", course);
 
@@ -73,7 +73,7 @@ console.log("🔑 Sending token:", token);
       throw new Error(`Failed to delete course: ${errorData.message || response.statusText}`);
   }
 
-  return true; // Видалення успішне
+  return true; 
 };
 
 export const deleteAuthorFromServer = async (authorId: string) => {

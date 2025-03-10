@@ -59,7 +59,7 @@ export default function Login() {
         localStorage.setItem('token', data.result);
         localStorage.setItem('email', data.user.email);
   
-        // ✅ Адмін визначається за email
+      
         const isAdmin = data.user.email === 'admin@email.com';
   
         dispatch(
@@ -67,7 +67,7 @@ export default function Login() {
             name: data.user.name,
             email: data.user.email,
             token: data.result,
-            isAdmin, // ✅ Використовуємо `isAdmin` замість `role`
+            isAdmin, 
           })
         );
   
