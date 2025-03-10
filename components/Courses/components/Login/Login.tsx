@@ -41,31 +41,38 @@ export default function Login() {
       setErrors(validationErrors);
       return;
     }
-
+  
     setErrors({});
     setServerError('');
-
+  
     try {
       const response = await fetch('http://localhost:4000/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       });
-
+  
       if (response.ok) {
         const data = await response.json();
-        console.log('Login successful, token:', data.result);
+        console.log('Login successful, user:', data.user); 
+  
         localStorage.setItem('token', data.result);
-
-       
+        localStorage.setItem('email', data.user.email);
+  
+        // ✅ Адмін визначається за email
+        const isAdmin = data.user.email === 'admin@email.com';
+  
         dispatch(
           loginSuccess({
             name: data.user.name,
-            email: formData.email,
+            email: data.user.email,
             token: data.result,
+            isAdmin, // ✅ Використовуємо `isAdmin` замість `role`
           })
         );
-
+  
+        localStorage.setItem('isAdmin', JSON.stringify(isAdmin));
+  
         navigate('/courses', { replace: true });
       } else {
         setServerError('Invalid credentials');
@@ -75,6 +82,8 @@ export default function Login() {
       setServerError('Network error. Please try again.');
     }
   };
+  
+  
 
   return (
     <div className="login-container">

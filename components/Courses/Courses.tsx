@@ -14,13 +14,15 @@ const Courses = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const isAdmin = useSelector((state: RootState) => state.user.isAdmin);
   
   const isCreatingCourse = location.pathname === '/courses/add';
 
   const courses = useSelector((state: RootState) => state.courses.courses);
   const error = useSelector((state: RootState) => state.courses.error);
   const authors = useSelector((state: RootState) => state.authors);
-
+  const role = useSelector((state: RootState) => state.user.role);
+  
   useEffect(() => {
     const fetchCourses = async () => {
       try {
@@ -86,11 +88,13 @@ const Courses = () => {
   return (
     <div className="courses-container">
       <div className="courses-header">
-        <Button  
-          buttonText="Add New Course" 
-          onClick={() => navigate('/courses/add')} 
-          className="add-course-button"
-        />
+      {isAdmin && (
+  <Button  
+    buttonText="Add New Course" 
+    onClick={() => navigate('/courses/add')} 
+    className="add-course-button"
+  />
+)}
       </div>
 
       <div className="courses">

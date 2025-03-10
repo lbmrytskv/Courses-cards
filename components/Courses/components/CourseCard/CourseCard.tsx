@@ -12,6 +12,7 @@ import { RootState } from "../../../../store";
 
 
 const CourseCard = ({ course, onClick }) => {
+  const isAdmin = useSelector((state: RootState) => state.user.isAdmin);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const authors = useSelector((state: RootState) => state.authors);
@@ -91,8 +92,12 @@ const handleEdit = () => {
               <strong>Created:</strong> {formatDate(course.creationDate)}
             </p>
             <div className="course-actions">
-              <Button buttonText={<FaTrash />} onClick={handleDelete} />
-              <Button buttonText={<FaEdit />} onClick={handleEdit} />
+            {isAdmin && (
+  <>
+    <Button buttonText={<FaTrash />} onClick={handleDelete} />
+    <Button buttonText={<FaEdit />} onClick={handleEdit} />
+  </>
+)}
               <Button buttonText="Show Course" onClick={onClick} />
             </div>
           </div>
