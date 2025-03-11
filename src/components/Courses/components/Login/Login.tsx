@@ -117,7 +117,7 @@ export default function Login() {
         {serverError && <p className="server-error">{serverError}</p>}
         <p className="form-footer">
   Don't have an account? <Link to="/registration">Register</Link>
-        </p>
+</p>
       </form>
     </div>
   );

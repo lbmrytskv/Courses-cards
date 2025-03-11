@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";  // Додано Link
 import Input from "../../../../common/Input/Input";
 import Button from "../../../../common/Button/Button";
 
@@ -54,8 +55,7 @@ function Registration() {
     setSuccessMessage('');
 
     try {
-      const response = await fetch('https://backend-course-cards.onrender.com/register', {
-        method: 'POST',
+      const response = await fetch('https://backend-course-cards.onrender.com/register', {  
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       });
@@ -116,7 +116,7 @@ function Registration() {
         {serverError && <p className="server-error">{serverError}</p>}
         {successMessage && <p className="success-message">{successMessage}</p>}
         <p className="form-footer">
-          Already have an account? <a href="/login">Login</a>
+          Already have an account? <Link to="/login">Login</Link>  
         </p>
       </form>
     </div>
