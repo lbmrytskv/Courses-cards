@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { loginSuccess } from '../../../../store/user/reducer';
 import Input from '../../../../common/Input/Input';
 import Button from '../../../../common/Button/Button';
+import { Link } from 'react-router-dom';
 
 interface FormData {
   email: string;
@@ -115,7 +116,7 @@ export default function Login() {
         <Button buttonText="Login" className="submit-button" />
         {serverError && <p className="server-error">{serverError}</p>}
         <p className="form-footer">
-          Don't have an account? <a href="/registration">Register</a>
+  Don't have an account? <Link to="/registration">Register</Link>
         </p>
       </form>
     </div>
