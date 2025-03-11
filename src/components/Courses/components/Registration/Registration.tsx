@@ -54,7 +54,7 @@ function Registration() {
     setSuccessMessage('');
 
     try {
-      const response = await fetch('https://backend-course-cards.onrender.com/api/register', {
+      const response = await fetch('https://backend-course-cards.onrender.com/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),

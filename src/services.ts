@@ -1,4 +1,4 @@
-const API_BASE_URL = "https://backend-course-cards.onrender.com/api";
+const API_BASE_URL = "https://backend-course-cards.onrender.com";
 
 const fetchFromApi = async <T>(endpoint: string): Promise<T> => {
   const token = localStorage.getItem('token'); 

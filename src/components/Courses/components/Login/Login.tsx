@@ -46,7 +46,7 @@ export default function Login() {
     setServerError('');
   
     try {
-      const response = await fetch('https://backend-course-cards.onrender.com/api/login', {
+      const response = await fetch('https://backend-course-cards.onrender.com/login', {
 
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
