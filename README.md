@@ -1,77 +1,46 @@
-# Courses App Template
+About the Project
 
-## Where to put your code?
+Courses App is a web application for managing courses. It allows users to view a list of courses, add new courses, edit existing ones, and delete them. To manage courses, authentication as admin is required.
 
-So, we already prepared basis for your `React` application.
+Features
 
-It means we have added all required dependencies and setup everything, so you don't need to start `React` project by yourself.
+📌 View the list of courses
 
-There are already predefined files:
+📌 Add a new course (admin only)
 
--   `src/App.tsx`: main application component, we expect you to render components you create inside of it;
--   `index.html`: HTML page we render our application;
--   `src/main.tsx`: our application entry point, here you must put the logic for rendering `<App>` component and putting it on the page. By default it is empty.
-- Other files you see also have their purpose, so please, don't delete them.
+📌 Edit a course (admin only)
 
-### Please, read carefully all recommendations below:
+📌 Delete a course (admin only)
 
-1. **You must import and render your component(s) inside `src/App.tsx` file, otherwise we can't verify your solution!**
+📌 View detailed course information
 
-2. **You have to render `<App>` component inside of the element with `"root"` id! All the logic for putting `<App>` component inside the `index.html` page, you have to write in the `src/main.tsx` file! Otherwise we can't verify your solution.**
+📌 User authentication and registration
 
-3. We suggest creating separate files for components your are writing. For instance, if task description says creating a header component, you create a file `src/components/Header.tsx` and put inside all the code, and export the component as a result.
+Running the Project
 
-    After that you import you new component to the `src/App.tsx` and render it inside, for examples like this:
+🔧 Install Dependencies
 
-    `src/components/Header.tsx`:
+Before running the project, make sure you have Node.js and npm installed. Then, run:
 
-    ```tsx
-    function Header() {
-        return <header>Hello, I am header</header>;
-    }
+npm install
 
-    export default Header;
-    ```
+🚀 Start the Application
 
-    `src/App.tsx`:
+npm start
 
-    ```tsx
-    import Header from "./components/Header";
+The project will run at http://localhost:5173/
 
-    function App() {
-        return <Header />;
-    }
+Accessing Admin Features
 
-    export default App;
-    ```
+To create, edit, and delete courses, you need to log in as an administrator:
 
-4. If task says you need applying styles, please, import them directly to a component file like this:
+Login credentials:
 
-    `src/components/MyComponent.css`:
+Email: admin@email.com Password: admin123
 
-    ```css
-    .my-component {
-        color: red;
-    }
-    ```
+After logging in successfully, you will have access to the Add New Course, Edit, and Delete buttons in the course list.
 
-    `src/components/MyComponent.tsx`:
+Additional Information
 
-    ```tsx
-    import "./MyComponent.css";
-
-    function MyComponent() {
-        return <div className="my-component">Hello, I am component</div>;
-    }
-
-    export default MyComponent;
-    ```
-
-5. To run application in development mode, just run in the terminal (`command line, Bash, Git Bash`):
-
-    ```bash
-    npm start
-    ```
-
-    It starts application and updates it when you change something.
+This project uses React, Redux for state management, and React Router for navigation.
 
